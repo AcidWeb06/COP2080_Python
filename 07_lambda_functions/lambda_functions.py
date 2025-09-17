@@ -13,3 +13,12 @@ for x, y in inputs:
     print(f"Subtract: {subtract(x, y)}")
     print(f"Multiply: {multiply(x, y)}")
     print(f"Divide: {divide(x, y)}")
+
+input = "jdjZjfoLUlsjWH"
+test = lambda x: x if x == x.upper() else ""
+
+aplus = ""
+for i in input:
+    aplus += test(i)
+
+print(aplus)
