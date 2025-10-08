@@ -1,6 +1,6 @@
 class Fraction:
     def __init__(self, numerator = 0, denominator = 1):
-        divisor = gcd(numerator, denominator)
+        divisor = Fraction.gcd(numerator, denominator)
         self._numerator = numerator // divisor
         self._denominator = denominator // divisor
 
@@ -29,7 +29,7 @@ class Fraction:
     def __str__(self):
         return f"{self._numerator}/{self._denominator}"
     
-    def __multiply__(self, other):
+    def __mul__(self, other):
         return Fraction(self._numerator * other._numerator, self._denominator * other._denominator)
     
     def __add__(self, other):
@@ -37,7 +37,7 @@ class Fraction:
         d = self.denominator * other.denominator
         return Fraction(n, d)
     
-    def __subtract__(self, other):
+    def __sub__(self, other):
         n = (self.numerator * other.denominator) - (self.denominator * other.numerator)
         d = self.denominator * other.denominator
         return Fraction(n, d)
@@ -45,8 +45,8 @@ class Fraction:
     def gcd(n, d):
         gcd = 1
         k = 1
-        while k <= n & k <= d:
-            if n % k == 0 & d % k == 0:
+        while k <= n and k <= d:
+            if n % k == 0 and d % k == 0:
                 gcd = k
             k += 1
         return gcd
@@ -59,6 +59,6 @@ frac1.denominator = 0
 print(frac1)
 
 frac2 = Fraction(4, 5)
-print(f"{frac1} * {frac2} = {frac1.__multiply__(frac2)}")
-print(frac1.__add__(frac2))
-print(frac1.__subtract__(frac2))
+print(f"{frac1} * {frac2} = {frac1 * frac2}")
+print(frac1 + frac2)
+print(frac1 -frac2)
